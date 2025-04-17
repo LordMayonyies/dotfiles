@@ -110,4 +110,4 @@ alias l="eza -l --icons=auto --color=auto"
 alias la="eza -la --icons=auto --color=auto"
 alias vi="nvim"
 alias vim="nvim"
-alias dotfiles=/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME
+alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
