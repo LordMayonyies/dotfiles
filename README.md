@@ -8,4 +8,4 @@ brigthnessctl
 xss-lock
 nm-applet
 kitty
-
+flameshot

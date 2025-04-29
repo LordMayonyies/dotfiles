@@ -53,5 +53,6 @@ assign [class="rider"] $ws1
 # finds out, if available)
 bar {
 	position top
-        status_command i3status
+	status_command i3status
+#	status_command i3blocks
 }
