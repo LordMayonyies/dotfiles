@@ -1,6 +1,6 @@
 #!/bin/bash
 
-vpnConnections=$( /home/smayor/.local/share/SoftEtherVPN/vpncmd localhost /client /CMD accountlist | grep -e "VPN Connection Setting Name" | cut -f2 -d'|' )
+vpnConnections=$( $HOME/.local/share/SoftEtherVPN/vpncmd localhost /client /CMD accountlist | grep -e "VPN Connection Setting Name" | cut -f2 -d'|' )
 
 
 oldIFS=$IFS
@@ -17,14 +17,14 @@ select answer in "${choices[@]}"; do
 done
 
 # disconnect client account from server
-/home/smayor/.local/share/SoftEtherVPN/vpncmd localhost /client /CMD accountdisconnect $answer
+$HOME/.local/share/SoftEtherVPN/vpncmd localhost /client /CMD accountdisconnect $answer
 
-servername=$( /home/smayor/.local/share/SoftEtherVPN/vpncmd localhost /client /CMD accountlist | grep -e "$answer" -A 2 | grep "VPN Server Hostname" | cut -f2 -d'|' | cut -f1 -d':' )
+servername=$( $HOME/.local/share/SoftEtherVPN/vpncmd localhost /client /CMD accountlist | grep -e "$answer" -A 2 | grep "VPN Server Hostname" | cut -f2 -d'|' | cut -f1 -d':' )
 
 echo $servername
 
 # stop vpn client service
-sudo /home/smayor/.local/share/SoftEtherVPN/vpnclient stop
+sudo $HOME/.local/share/SoftEtherVPN/vpnclient stop
 
 # get vpn server ip
 serverip="$(getent hosts $servername | cut -d ' ' -f 1)"

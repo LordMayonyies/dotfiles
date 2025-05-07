@@ -4,7 +4,7 @@
 sudo /home/smayor/.local/share/SoftEtherVPN/vpnclient start
 sleep 1
 
-vpnConnections=$( /home/smayor/.local/share/SoftEtherVPN/vpncmd localhost /client /CMD accountlist | grep -e "VPN Connection Setting Name" | cut -f2 -d'|' )
+vpnConnections=$( $HOME/.local/share/SoftEtherVPN/vpncmd localhost /client /CMD accountlist | grep -e "VPN Connection Setting Name" | cut -f2 -d'|' )
 
 
 oldIFS=$IFS
@@ -20,10 +20,10 @@ select answer in "${choices[@]}"; do
   done
 done
 
-/home/smayor/.local/share/SoftEtherVPN/vpncmd localhost /client /CMD accountconnect $answer
+$HOME/.local/share/SoftEtherVPN/vpncmd localhost /client /CMD accountconnect $answer
 sleep 1
 
-servername="$( /home/smayor/.local/share/SoftEtherVPN/vpncmd localhost /client /CMD accountlist | grep "$answer" -A 2 | grep "VPN Server Hostname" | cut -f2 -d'|' | cut -f1 -d':' )"
+servername="$( $HOME/.local/share/SoftEtherVPN/vpncmd localhost /client /CMD accountlist | grep "$answer" -A 2 | grep "VPN Server Hostname" | cut -f2 -d'|' | cut -f1 -d':' )"
 
 echo Server name is $servername
 

@@ -9,3 +9,8 @@ Dotfiles for ArchLinux ws
 * xss-lock
 * kitty
 * flameshot
+
+## Nice to have
+| Name | Description |
+| ---- | ----------- |
+| bluetui  | For managing the bluetooth devices with a TUI |

@@ -49,6 +49,6 @@ assign [class="rider"] $ws1
 # finds out, if available)
 bar {
 	position top
-#	status_command exec /home/smayor/.config/i3status/custom_i3status.sh
-	status_command i3status
+	status_command exec $HOME/.config/i3status/customStatusBar.sh
+#	status_command i3status
 }
